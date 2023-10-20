@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="card">
+                            <form method="post" action="{% url 'doctor_reg' %}" class="form-horizontal" enctype="multipart/form-data">
+                                 {% csrf_token %}
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align:center;">Add New Doctor To Hospital</h4>
+                                    <div class="form-group row">
+                                        <label  class="col-sm-3 text-right control-label col-form-label">Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"  placeholder="Name" name="fname">
+                                        </div>
+                                    </div>
+
+
+                                      <div class="form-group row">
+                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Address</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" placeholder="Address" name="adrs"></textarea>
+                                        </div>
+                                    </div>
+                                      <div class="form-group row">
+                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">About</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" placeholder="About" name="description">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Picture</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="form-control" id="lname" name="img">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="lname" name="email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Password</label>
+                                        <div class="col-sm-9">
+                                            <input type="password" class="form-control" id="lname" placeholder="Password" name="pwd">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label  class="col-sm-3 text-right control-label col-form-label">Department</label>
+                                        <div class="col-sm-9">
+                                            <select type="text" class="form-control"  placeholder="Department Name" name="dp">
+                                                {% for i in doc %}
+                                                <option>{{i.department}}</option>
+                                                {% endfor %}
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Contact No</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="cono1" placeholder="Contact No" name="cnt">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="border-top">
+                                    <div class="card-body">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+    
+</body>
+{% endblock %}
+</html>

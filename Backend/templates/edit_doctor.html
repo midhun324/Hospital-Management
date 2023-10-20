@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="card">
+                            <form method="post" action="{% url 'update_doc' dataid=data.id %}" class="form-horizontal" enctype="multipart/form-data">
+                                 {% csrf_token %}
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align:center;">Edit Doctor Details</h4>
+                                    <div class="form-group row">
+                                        <label  class="col-sm-3 text-right control-label col-form-label">Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control"  placeholder="Name" name="fname" value="{{data.name}}">
+                                        </div>
+                                    </div>
+
+
+                                      <div class="form-group row">
+                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Address</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" placeholder="Address"  name="adrs"  >{{data.address}}</textarea>
+                                        </div>
+                                    </div>
+                                      <div class="form-group row">
+                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">About</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control" placeholder="About"  name="description">{{data.description}}</textarea>
+                                        </div>
+                                    </div>
+                                          <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="lname" name="email" placeholder="Email" value="{{data.email}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Picture</label>
+                                        <div class="col-sm-9">
+                                            <img src="{{data.image.url}}" style="width:100px;height:100px;" alt="">
+                                            <input type="file" class="form-control" id="lname" name="image">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label  class="col-sm-3 text-right control-label col-form-label">Department</label>
+                                        <div class="col-sm-9">
+                                            <select type="text" class="form-control"  placeholder="Department Name" value="{{data.department}}" name="dp">
+                                                <option>Orthopedics</option>
+                                                <option>Cardiology</option>
+                                                <option>Dermatology</option>
+                                                <option>Neurology</option>
+                                                <option>Psychiatry</option>
+                                                <option>Ophthalmology</option>
+                                                <option>Endocrinology</option>
+                                                <option>Rheumatology</option>
+                                                <option>Endocrinology</option>
+                                                <option>Allergy and Immunology</option>
+                                                <option>Plastic Surgeon</option>
+                                                <option>Neonatology</option>
+                                                <option>Pain Management</option>
+                                                <option>Preventive Medicine</option>
+                                                <option>Geriatrics</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Contact No</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="cono1" placeholder="Contact No" value="{{data.contact}}" name="cnt">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="border-top">
+                                    <div class="card-body">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+
+
+</body>
+{% endblock %}
+</html>

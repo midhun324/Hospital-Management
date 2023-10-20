@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title m-b-0">Static Table</h5>
+                            </div>
+                            <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">#</th>
+                                      <th scope="col">Department</th>
+                                      <th scope="col">Descriptiont</th>
+                                      <th scope="col">Image</th>
+                                      <th scope="col">Edit</th>
+                                      <th scope="col">Delete</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                  {% for i in dept %}
+                                    <tr>
+                                      <th scope="row">1</th>
+                                      <td>{{i.department}}</td>
+                                      <td>{{i.description}}</td>
+                                      <td>
+                                          <img src="{{i.image.url}}" alt="" style="width:90px;height:90px;">
+                                      </td>
+                                      <td>
+                                          <form action="{% url 'edit_dept' dept_id=i.id %}">
+                                              <button class="btn btn-outline-danger" type="submit">EDIT</button>
+                                          </form>
+                                      </td>
+                                      <td>
+                                          <form action="{% url 'delete_dept' dept_id=i.id %}">
+                                              <button class="btn btn-outline-danger" type="submit">DELETE</button>
+                                          </form>
+                                      </td>
+
+                                    </tr>
+                                  {% endfor %}
+
+                                  </tbody>
+                            </table>
+                        </div>
+</body>
+{% endblock %}
+</html>
